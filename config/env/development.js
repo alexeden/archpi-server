@@ -1,4 +1,6 @@
 // Development session secret string
 module.exports = {
-	sessionSecret: 'developmentSessionSecret'
+	sessionSecret: 'developmentSessionSecret',
+	db: 'mongodb://localhost/test'
 };
+

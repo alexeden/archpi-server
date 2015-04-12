@@ -1,15 +1,20 @@
 // Express Server Initialization
 
 var config 		= require('./modeset'),
-	http 		= require('http'),
-	socketio 	= require('socket.io'),
+	bodyParser	= require('body-parser'),
+	compress	= require('compression'),
 	express 	= require('express'),
+	flash		= require('connect-flash'),
+	http 		= require('http'),
+	methodOverride = require('method-override'),
 	morgan		= require('morgan'),
 	session		= require('express-session'),
-	flash		= require('connect-flash');
+	MongoStore	= require('connect-mongo')(session),
+	socketio 	= require('socket.io');
 
 // Module constructor
-module.exports = function() {
+module.exports = function(db) {
+	console.log("db", db.connection.db);
 	var app = express();
 	var server = http.createServer(app);
 	var io = socketio.listen(server);
@@ -22,18 +27,42 @@ module.exports = function() {
 		app.use(compress());
 	}
 
-	require('../app/routes/index.server.routes.js')(app);
+	// Body parser
+	app.use(bodyParser.urlencoded({
+		extended: true
+	}));
+	app.use(bodyParser.json());
+	app.use(methodOverride());
+
+	// Allow the storage of session info in a MongoDB instance
+	var mongoStore = new MongoStore({
+		db: 'mongodb://localhost/test'
+	});
 
 
 	// Express session data
 	app.use(session({
 		saveUninitialized: true,
 		resave: true,
-		secret: config.sessionSecret
+		secret: config.sessionSecret,
+		store: mongoStore
 	}));
+
+	// User authentication
+	app.use(flash());
+
+	// MVC Implementation
+	require('../app/routes/index.server.routes.js')(app);
 
 	// Static client files
 	app.use(express.static('./public'));
+
+	
+	// Call the Socket.io configuration module, which will set the Socket.io session
+	require('./socketio')(server, io, mongoStore);
+
+
+	
 
 	return server;
 };

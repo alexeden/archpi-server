@@ -4,11 +4,13 @@
 // Set the NODE_ENV environment variable to 'devlopment' if NODE_ENV not set
 process.env.NODE_ENV = process.env.NODE_ENV || 'development';
 
+var mongoose = require('./config/mongoose');
 var express = require('./config/express');
 var gpio_config = require('./config/gpio');
+
+var db = mongoose();
+var app = express(db);
 var gpio = gpio_config();
-console.log("GPIO", gpio);
-var app = express();
 
 /*var gpio = require('rpi-gpio');
 
