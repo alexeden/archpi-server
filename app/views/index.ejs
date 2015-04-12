@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:ng="http://angularjs.org">
+	<head>
+		<title><%= title %></title>
+	</head>
+	<body>
+		
+		<img src="img/logo.png" alt="Logo">
+		<h1><%= title%></h1>
+
+		<!-- include the example module view via routing -->
+		<section ng-view></section>
+
+		<!-- Render the user object -->
+		<script type="text/javascript">
+			window.user = <%- user || 'null' %>;
+		</script>
+
+
+
+		<!-- include socket, angularjs, angularjs routing, and angularjs resource configs -->
+		<script type="text/javascript" src="/socket.io/socket.io.js"></script>
+		<script type="text/javascript" src="/lib/angular/angular.js"></script>
+		<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
+		<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+
+		<!-- include the user authentication module and service -->
+		<script type="text/javascript" src="/users/users.client.module.js"></script>
+		<script type="text/javascript" src="/users/services/authentication.client.service.js"></script>
+
+		<!-- include the main application angular bootstrap initialization -->
+		<script type="text/javascript" src="/application.js"></script>
+	</body>
+</html>

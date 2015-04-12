@@ -10,7 +10,8 @@ var config 		= require('./modeset'),
 	morgan		= require('morgan'),
 	session		= require('express-session'),
 	MongoStore	= require('connect-mongo')(session),
-	socketio 	= require('socket.io');
+	socketio 	= require('socket.io'),
+	passport	= require('passport');
 
 // Module constructor
 module.exports = function(db) {
@@ -35,7 +36,7 @@ module.exports = function(db) {
 
 	// Allow the storage of session info in a MongoDB instance
 	var mongoStore = new MongoStore({
-		db: 'mongodb://localhost/archpi'
+		mongooseConnection: db.connection
 	});
 
 
@@ -47,8 +48,16 @@ module.exports = function(db) {
 		store: mongoStore
 	}));
 
-	// User authentication
-	app.use(flash());
+	// Use EJS as the default template engine
+	app.set('views', './app/views');
+	app.set('view engine', 'ejs');
+
+	// Register the connect-flash middleware for displaying error messages
+	app.use(flash()); // Exposes the req.flash() method
+
+	// Register the init and session Passport middleware
+	app.use(passport.initialize());	// Bootstraps the Passport module
+	app.use(passport.session());	// Keeps track of user's session
 
 	// MVC Implementation
 	require('../app/routes/index.server.routes.js')(app);
