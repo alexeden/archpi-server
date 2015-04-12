@@ -9,7 +9,6 @@ var passport = require('passport'),
 	users = require('../../app/controllers/users.server.controller');
 
 module.exports = function() {
-	console.log("Google strategy initializer, config:\n", config);
 	// Register the strategy and create an instance of a GoogleStrategy object
 	passport.use(
 		// The GoogleStrategy constructor takes two arguments:

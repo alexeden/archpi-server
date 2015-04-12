@@ -2,11 +2,33 @@
 <html xmlns:ng="http://angularjs.org">
 	<head>
 		<title><%= title %></title>
+		<link rel="shortcut icon" href="/favicon.ico?v=2" />
 	</head>
 	<body>
+		<style>
+		* {
+			margin: none;
+			padding: none;
+			outline: none;
+			border: none;
+			font-family: sans-serif;
+
+		}
+		footer {
+			position: fixed;
+			height: 100px;
+			width: 100%;
+			bottom: 0;
+			left: 0;
+		}
+		</style>
 		
-		<img src="img/logo.png" alt="Logo">
+		
 		<h1><%= title%></h1>
+		<p><b>ArchLinux ARM</b> Raspberry Pi 2</p>
+		<p><b>Node.js</b> MEAN Stack Application by Alexander Eden</p>
+		<p>Live Server - <i>From Jim's Basement!</i></p>
+		
 
 		<!-- include the example module view via routing -->
 		<section ng-view></section>
@@ -31,4 +53,10 @@
 		<!-- include the main application angular bootstrap initialization -->
 		<script type="text/javascript" src="/application.js"></script>
 	</body>
+	<footer >
+		<img src="img/pi-logo.png" alt="Logo">
+		<img src="img/arch-logo.png" alt="Logo">
+		<img src="img/node-logo.png" alt="Logo">
+		<img src="img/angular-logo.png" alt="Logo">
+		</footer>
 </html>
