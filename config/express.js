@@ -14,7 +14,6 @@ var config 		= require('./modeset'),
 
 // Module constructor
 module.exports = function(db) {
-	console.log("db", db.connection.db);
 	var app = express();
 	var server = http.createServer(app);
 	var io = socketio.listen(server);
@@ -36,7 +35,7 @@ module.exports = function(db) {
 
 	// Allow the storage of session info in a MongoDB instance
 	var mongoStore = new MongoStore({
-		db: 'mongodb://localhost/test'
+		db: 'mongodb://localhost/archpi'
 	});
 
 

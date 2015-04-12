@@ -9,7 +9,7 @@ module.exports = function(server, io, mongoStore) {
 			mongoStore.get(sessionId, function(err, session) {
 				socket.request.session = session;
 
-				
+				next(null, true);
 
 			})
 
@@ -17,4 +17,10 @@ module.exports = function(server, io, mongoStore) {
 
 
 	});
-}
+
+	io.on('connection', function(socket) {
+		// Socket MVC Controllers
+		console.log("io.connection socket: ", socket);
+
+	});
+};
