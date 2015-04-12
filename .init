@@ -1,0 +1,16 @@
+alias ls="ls -F --color=always"
+alias lsd="ls -AFXo --color=always"
+
+printf "%s\n%s" "Alias commands created" "Starting the MongoDB daemon..."
+
+sudo rm /var/lib/mongodb/mongod.lock
+
+if [ "${?}"  -eq "0" ] ; then
+	printf "%s\n" "Mongo lock file deleted"
+else 
+	printf "%s\n" "No Mongo lock file found"
+fi
+
+sudo mongod --config /etc/mongodb.conf
+
+printf "\n%s\n" "Done!"
