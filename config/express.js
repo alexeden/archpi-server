@@ -61,6 +61,7 @@ module.exports = function(db) {
 
 	// MVC Implementation
 	require('../app/routes/index.server.routes.js')(app);
+	require('../app/routes/users.server.routes.js')(app);
 
 	// Static client files
 	app.use(express.static('./public'));

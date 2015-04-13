@@ -3,9 +3,11 @@
 var mainApplicationModuleName = 'archpi-server';
 
 // Create the main application module
-var mainApplicationModule = angular.module(mainApplicationModuleName, 
-	['ngResource', 'ngRoute', 'users']);
-
+var mainApplicationModule = angular.module(
+	mainApplicationModuleName, 
+	['ngResource', 'ngRoute', 'users', 'main']
+);
+ 
 // Let crawlers know this is a single-page app using Hashbangs.
 // Configure the hashbang URLs using the $locationProvider services 
 mainApplicationModule.config(['$locationProvider',

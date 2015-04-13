@@ -1,15 +1,15 @@
 {
-	"web": {
+	"web":	{
 		"auth_uri":			"https://accounts.google.com/o/oauth2/auth",
-		"client_secret":	"kxKd9MgZ6csCigjtmmkaPn7M",
+		"client_secret":	"6gwAzg1YfZuwSWD5YQRL7IJ9",
 		"token_uri":		"https://accounts.google.com/o/oauth2/token",
-		"client_email":		"203477980957-9icc04e9g5488uvcsbua648n0ebh9k3l@developer.gserviceaccount.com",
+		"client_email":		"604504829237-2mhm9b91kqkufa3lfb8fjkap23r97lee@developer.gserviceaccount.com",
 		"redirect_uris": [
 			"http://localhost/oauth/google/callback"
 		],
-		"client_x509_cert_url":	"https://www.googleapis.com/robot/v1/metadata/x509/203477980957-9icc04e9g5488uvcsbua648n0ebh9k3l@developer.gserviceaccount.com",
-		"client_id":		"203477980957-9icc04e9g5488uvcsbua648n0ebh9k3l.apps.googleusercontent.com",
-		"auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+		"client_x509_cert_url":	"https://www.googleapis.com/robot/v1/metadata/x509/604504829237-2mhm9b91kqkufa3lfb8fjkap23r97lee@developer.gserviceaccount.com",
+		"client_id":	"604504829237-2mhm9b91kqkufa3lfb8fjkap23r97lee.apps.googleusercontent.com",
+		"auth_provider_x509_cert_url":	"https://www.googleapis.com/oauth2/v1/certs",
 		"javascript_origins": [
 			"http://localhost"
 		]

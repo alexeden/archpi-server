@@ -28,6 +28,8 @@ module.exports = function() {
 			// [4]	profile object containing the user profile
 			// [5]	done callback called when the authentication process is over
 			function(req, accessToken, refreshToken, profile, done) {
+				console.log("request header:\n", req.headers);
+				console.log("hostname:\n", req.headers.host);
 				// Create a new user object using the Google profile information
 				var providerData = profile._json;
 				providerData.accessToken = accessToken;

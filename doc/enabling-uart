@@ -1,0 +1,5 @@
+Getting control of the the RPI UART requires that you disable its default
+functionality as a serial port (at /dev/ttyAMA0)
+
+Go to /boot/cmdline.txt
+- Remove any parameters and its values that references ttyAMA0

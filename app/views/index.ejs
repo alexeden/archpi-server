@@ -30,7 +30,7 @@
 		<p>Live Server - <i>From Jim's Basement!</i></p>
 		
 
-		<!-- include the example module view via routing -->
+		<!-- include the main module view via routing -->
 		<section ng-view></section>
 
 		<!-- Render the user object -->
@@ -45,6 +45,11 @@
 		<script type="text/javascript" src="/lib/angular/angular.js"></script>
 		<script type="text/javascript" src="/lib/angular-route/angular-route.js"></script>
 		<script type="text/javascript" src="/lib/angular-resource/angular-resource.js"></script>
+		
+		<!-- include the main module controller -->
+		<script type="text/javascript" src="/main/main.client.module.js"></script>
+		<script type="text/javascript" src="/main/controllers/main.client.controller.js"></script>
+		<script type="text/javascript" src="/main/config/main.client.routes.js"></script>
 
 		<!-- include the user authentication module and service -->
 		<script type="text/javascript" src="/users/users.client.module.js"></script>
@@ -58,5 +63,5 @@
 		<img src="img/arch-logo.png" alt="Logo">
 		<img src="img/node-logo.png" alt="Logo">
 		<img src="img/angular-logo.png" alt="Logo">
-		</footer>
+	</footer>
 </html>
